@@ -2,7 +2,7 @@
 import numpy as np
 
 
-def game_core_v3(number: int = 1) -> int:
+def game_core_v4(number: int = 1) -> int:
     """
     Args:
         number (int, optional): Загаданное число. Defaults to 1.
@@ -35,7 +35,7 @@ def game_core_v3(number: int = 1) -> int:
 
     return count
 
-def score_game(game_core_v3) -> int:
+def score_game(game_core_v4) -> int:
     """За какое количество попыток в среднем за 1000 подходов угадывает наш алгоритм
     Args:
         random_predict ([type]): функция угадывания
@@ -48,11 +48,11 @@ def score_game(game_core_v3) -> int:
     random_array = np.random.randint(1, 101, size=(10000))  # загадали список чисел
 
     for number in random_array:
-        count_ls.append(game_core_v3(number))
+        count_ls.append(game_core_v4(number))
 
     score = int(np.mean(count_ls))  # находим среднее количество попыток
 
     print(f'Ваш алгоритм угадывает число в среднем за: {score} попыток')
     return(score)
 
-score_game(game_core_v3)
+score_game(game_core_v4)
